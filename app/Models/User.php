@@ -30,10 +30,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password','token','device'
+        'password',
     ];
-
-    public function phone(){
-        return $this->hasMany('App\Models\Phone','user_id');
-    }
 }

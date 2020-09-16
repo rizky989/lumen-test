@@ -13,20 +13,9 @@
 |
 */
 
-$router->get('/', function(){
-	return 'ok';
-});
-
 $router->get('/users', 'UserController@index');
 $router->get('/users/{user}', 'UserController@view');
 
 $router->group(['middleware' => 'auth'], function($router) {
 	$router->get('/secure/my-profile', 'SecureController@profile');
 });
-
-$router->post(
-    'auth/login', 
-    [
-       'uses' => 'AuthController@authenticate'
-    ]
-);
